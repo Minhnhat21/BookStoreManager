@@ -1,0 +1,75 @@
+body {
+    background: url(images/Login_bg_lg.png) repeat-x;
+    background-color: #006EB7;
+    height: 100vh;
+    overflow:hidden;
+}
+.hitec-signin {
+    display: flex;    
+    width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.hitec-col-image {
+    width:650px;
+}
+.hitec-signin-logo {
+    margin-top: 50px;
+}
+.hitec-signin-logo img {
+    width: 112px;
+    height: 112px;
+}
+.hitec-signin-image {
+    margin-top: 70px;    
+}
+.hitec-col-signin {
+    width:350px;
+}
+.hitec-form-signin {
+    width: 320px;
+    border: 5px solid #6bb9f0;
+    background: #f7f7f7;
+    padding: 15px;
+    height: 370px;
+    margin: 0 auto;
+    margin-top: 205px;
+    position: relative;
+}
+.hitec-form-signin img {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    right: 20px;
+}
+.form-signin-heading {
+    font-family: Calibri;
+    font-size: 25px;
+    font-weight:bold;
+    color: #006eb7;
+    margin-bottom: 20px;
+}
+.hitec-form-signin a.forgot-password {
+    display: block;
+}
+.hitec-form-signin .btn-custom {
+    margin: 20px auto;
+}
+footer {
+    padding-top: 50px;
+    color: #fff;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-item {
+    color: white;
+    text-align: center;
+}

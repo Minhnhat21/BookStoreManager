@@ -1,0 +1,96 @@
+/* Layout */
+.col-fixed-200 {
+    width: 200px;
+    float: left;
+    position: absolute;
+    left: 5px;
+    z-index: 999;
+}
+.col-offset-200 {
+    padding-left: 205px;
+    padding-right: 0;
+    float: none;
+}
+/* Nav bar */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    color: #000;
+    background: #fff;
+}
+.navbar-nav > li {
+    border-right: 1px solid #fff;
+}
+.navbar-default .navbar-nav > li > a:focus {
+    color: #FFF;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #000;
+}
+/*DROPDOWN*/
+/* Expand dropdown on hover*/
+.dropdown-hover:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.dropdown-menu {
+    min-width: 200px;
+    left: -2px;
+}
+.dropdown-menu.columns-2 {
+    min-width: 400px;
+}
+.dropdown-menu.columns-3 {
+    min-width: 600px;
+}
+ul.multi-column-dropdown {
+    padding-left: 0;
+}
+.dropdown-header {
+    color: rgb(66, 139, 202);
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.dropdown-menu li a {
+    padding: 5px 15px;
+    font-weight: 300;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+.multi-column-dropdown {
+    list-style: none;
+}
+.multi-column-dropdown li a {
+    display: block;
+    clear: both;
+    line-height: 1.428571429;
+    color: #333;
+    white-space: normal;
+}
+.multi-column-dropdown li a:hover {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+.multi-column-dropdown > .disabled > a,
+.multi-column-dropdown > .disabled > a:hover,
+.multi-column-dropdown > .disabled > a:focus {
+    color: #777;
+}
+.multi-column-dropdown > .disabled > a:hover,
+.multi-column-dropdown > .disabled > a:focus {
+    text-decoration: none;
+    cursor:not-allowed;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/*.navbar-nav > li > .dropdown-menu {
+    border-top: none;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #000;
+    background: #fff;
+}*/
