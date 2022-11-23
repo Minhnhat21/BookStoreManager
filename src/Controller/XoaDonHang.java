@@ -52,9 +52,9 @@ public class XoaDonHang extends HttpServlet {
 		session.setAttribute("gio", gh);
 		session.setAttribute("slsp", gh.ds.size());
 		if(gh.ds.size() == 0) {
-			   response.sendRedirect("DanhSachSach");
+			   response.sendRedirect("./DanhSachSach");
 		 } else {   
-		   	response.sendRedirect("GioHang");
+		   	response.sendRedirect("./GioHang");
 		 }
 	}
 

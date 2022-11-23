@@ -42,7 +42,7 @@ public class danhsachtimkiem extends HttpServlet {
     	   if(key != null) dssach = sbo.searh(key);
        request.setAttribute("ketquatk", dssach);
        
-       RequestDispatcher rp = request.getRequestDispatcher("hien-thi-sach.jsp");
+       RequestDispatcher rp = request.getRequestDispatcher("/WEB-INF/views/hien-thi-sach.jsp");
        rp.forward(request, response);
 	}
 

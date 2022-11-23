@@ -17,7 +17,7 @@ public class sachbo {
 	public ArrayList<sachbean> searcMa(String maloai) {
 		ArrayList<sachbean> tam = new ArrayList<sachbean>();
 		for(sachbean s : ds) {
-			if(s.getMaloai().toLowerCase().equals(maloai)) {
+			if(s.getMaloai().toLowerCase().equals(maloai.toLowerCase())) {
 				tam.add(s);
 			}
 		}

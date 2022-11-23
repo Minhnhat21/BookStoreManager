@@ -1,3 +1,4 @@
+<%@page import="bean.khachhangbean"%>
 <%@page import="bo.sachbo"%>
 <%@page import="dao.sachdao"%>
 <%@page import="bean.sachbean"%>
@@ -26,9 +27,9 @@
 	      <li class="active"><a href="DanhSachSach">Home</a></li>
 	      <%if(session.getAttribute("slsp") == null ) {
 	    	  %>
-	      <li><a href="gio-hang.jsp">Giỏ hàng (0)</a></li>
+	      <li><a href="xulygiohang">Giỏ hàng (0)</a></li>
 	      <% } else { %>
-	      <li><a href="gio-hang.jsp">Giỏ hàng (<%=session.getAttribute("slsp")%>)</a></li>
+	      <li><a href="xulygiohang">Giỏ hàng (<%=session.getAttribute("slsp")%>)</a></li>
 	      <%} %>
 	      <li><a href="#">Thanh toán</a></li>
 	      <li><a href="#">Lịch sử mua hàng</a></li>
@@ -44,8 +45,9 @@
 	    		}
 	    		else {
 	    	%>
-		    	<li><a href="dang-nhap.jsp"><span class="glyphicon glyphicon-user"></span> Xin chào: <%=session.getAttribute("dangnhap")%></a></li>
-		    	<li><a href="logout.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	    	<% khachhangbean kh = (khachhangbean) session.getAttribute("dangnhap"); %>
+		    	<li><a href="KiemTraDangNhap"><span class="glyphicon glyphicon-user"></span> Xin chào: <%=kh.getHoten()%></a></li>
+		    	<li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 	    	<%
 	    		}
 	    	%>
@@ -58,7 +60,7 @@
 	<%
 	Boolean DNThanhCong = false;
 	if(session.getAttribute("ketquaDN") != null) {
-		DNThanhCong = (Boolean) session.getAttribute("ketquaDN");
+		DNThanhCong = (Boolean) request.getAttribute("ketquaDN");
 		if(!DNThanhCong) {%>
 		  <div id="alert_error_login" class="alert alert-danger alert-dismissible">
 		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -80,6 +82,7 @@
      %>
         <tr><td class="navigation-bar" width="240">
           <a  href="DanhSachSach?ml=<%=l.getMaLoai()%>"><i class="fa-solid fa-book"></i> <%=l.getTenLoai()%></a>
+   
         </td></tr>
         <%} %>
     </table>
@@ -116,8 +119,8 @@
 	        %>
 	        	<td width="300">
 		             <div class="description-book">
-			            <img src="images/<%=sach.getAnh()%>" width="200"> <br>
-				        <a href="xulygiohang?ms=<%=sach.getMasach()%>&ts=<%=sach.getTensach()%>&gia=<%=sach.getGia()%>&anh=<%=sach.getAnh()%>&themgio=1"><img src="images/buynow.jpg"></a>  <br>
+			            <img src="<%=sach.getAnh()%>" width="200"> <br>
+				        <a href="./xulygiohang?ms=<%=sach.getMasach()%>&ts=<%=sach.getTensach()%>&gia=<%=sach.getGia()%>&anh=<%=sach.getAnh()%>&themgio=1"><img src="image_sach/buynow.jpg"></a>  <br>
 				       <a><%=sach.getTensach() %></a>  <br>
 				       Giá bán:  <%=sach.getGia() %> VNĐ <br> 
 			       </div>
@@ -150,7 +153,7 @@
 <div id="login-modal" class="modal fade">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form action="KiemTraDangNhap" method="post">
+            <form action="./KiemTraDangNhap" method="post">
                 <div class="modal-header">
                     <h4 class="modal-title">Đăng nhập</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

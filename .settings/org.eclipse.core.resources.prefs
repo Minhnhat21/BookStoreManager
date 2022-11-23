@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//WebContent/xoadonhang.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/xoadonhang.jsp=UTF-8
 encoding//src/Controller/Controller.java=UTF-8
 encoding//src/Controller/KiemTraDangNhap.java=UTF-8
 encoding//src/Controller/xulygiohang.java=UTF-8

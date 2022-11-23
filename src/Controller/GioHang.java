@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.xml.internal.ws.resources.HttpserverMessages;
 
 import bean.loaibean;
 import bean.sachbean;
@@ -59,7 +58,7 @@ public class GioHang extends HttpServlet {
 		        request.setAttribute("dsSach", dssach);
 		        
 		        
-		        RequestDispatcher rp2 = request.getRequestDispatcher("htgio.jsp");
+		        RequestDispatcher rp2 = request.getRequestDispatcher("/WEB-INF/views/htgio.jsp");
 		        rp2.forward(request, response);
 	}
 

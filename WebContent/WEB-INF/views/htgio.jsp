@@ -1,3 +1,4 @@
+<%@page import="bean.khachhangbean"%>
 <%@page import="bean.giohangbean"%>
 <%@page import="bo.giohangbo"%>
 <%@page import="java.util.ArrayList"%>
@@ -38,24 +39,22 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       
-      <%
-           if(session.getAttribute("dangnhap")!=null){
-       %>
-      		<li><a href="logout.jsp"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
-	      <li><a href="#login-modal" data-toggle="modal">
-	      <span class="glyphicon glyphicon-log-in"></span>
-	        Hi: <%=session.getAttribute("dangnhap")%>
-	       </a></li>
-	       <%
-	       	} else{
-	       %>
-          <li><a href="#login-modal" data-toggle="modal">
-	      <span class="glyphicon glyphicon-log-in"></span>
-	        Login
-	       </a></li>
-       <%
-       	}
-       %>
+     <%
+	      	   if(session.getAttribute("dangnhap") == null) {
+	      %>
+	      	<li><a href="dang-ky.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		     <li><a href="#login-modal" data-toggle="modal" ><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+	
+	    	<%
+	    		}
+	    		else {
+	    	%>
+	    	<% khachhangbean kh = (khachhangbean) session.getAttribute("dangnhap"); %>
+		    	<li><a href="KiemTraDangNhap"><span class="glyphicon glyphicon-user"></span> Xin chào: <%=kh.getHoten()%></a></li>
+		    	<li><a href="/WEB-INF/views/logout.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	    	<%
+	    		}
+	    	%>
     </ul>
   </div>
 </nav>
@@ -78,14 +77,15 @@
     </table>
   </td>
   <td width="900" valign="top">
-  <form action="XoaDonHang">
+  <form action="./XoaDonHang">
   
      <table class="table table-hover">
        <%
        String key = request.getParameter("txttk");
        giohangbo gh= (giohangbo)session.getAttribute("gio"); 
-       
+      	
        ArrayList<giohangbean> dsDonHang = gh.ds;
+       
        if(key != null) {
     	   dsDonHang = gh.timkiem(key);   	   
        }
@@ -112,7 +112,7 @@
 			</div>
        		</td>
        		<td>
-       		<img class="zoom-img" src="images/<%=h.getAnh()%>" width="50"> <br>
+       		<img class="zoom-img" src="<%=h.getAnh()%>" width="50"> <br>
        		</td>
        		<%-- <td>
        		   <%=h.getMasach() %>
@@ -152,7 +152,11 @@
     <a class="btn btn-info" href="DanhSachSach" role="button"><i class="fa-solid fa-cart-shopping"></i> Tiếp tục mua hàng</a>
     <a href="xulygiohang?xoaAll=1" id="deleteAllBtn" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Trả lại tất cả đơn</a>
     <a class="btn btn-success" href="#" role="button"><i class="fa-solid fa-cart-shopping"></i> Thanh toán</a>
+    <form action="datmuaController"  method="get">
+    <button type="submit" class="btn btn-primary">Đặt mua</button>
+    </form>
     <%} %>
+    
    </td>
   <td width="200" valign="top">
    <!-- <form action="htsach.jsp" method="get">
@@ -177,7 +181,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
         <!-- form login -->
-            <form action="ktdn.jsp">
+            <form action="./KiemTraDangNhap">
                 <div class="modal-header">
                     <h4 class="modal-title">Đăng nhập</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

@@ -52,7 +52,7 @@ public class DanhSachSach extends HttpServlet {
         request.setAttribute("dsLoai", dsloai);
         request.setAttribute("dsSach", dssach);
       
-        RequestDispatcher rp = request.getRequestDispatcher("hien-thi-sach.jsp");
+        RequestDispatcher rp = request.getRequestDispatcher("/WEB-INF/views/hien-thi-sach.jsp");
         rp.forward(request, response);
 	}
 

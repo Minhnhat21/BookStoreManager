@@ -1,18 +1,41 @@
 package dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import bean.loaibean;
 import bean.sachbean;
 
 public class sachdao {
 	public ArrayList<sachbean> getSach() {
-		ArrayList<sachbean> list = new ArrayList<sachbean>();
-		list.add(new sachbean("s1", "Trải nghiệm và khác vọng cuộc sống", "Anne Morrow Lindbergh", 1, 10,"b1.jpg", "kt"));
-		list.add(new sachbean("s2", "Bí mật của may mắn", "Minh Nhat", 2, 20,"b2.jpg", "bc"));
-		list.add(new sachbean("s3", "Cơ sở dữ liệu", "Tran Nguyen Phong", 2, 10,"b3.jpg", "tin"));
-		list.add(new sachbean("s4", "Cấu trúc dữ liệu và thuật toán", "Hoàng Quang", 4, 20,"b4.jpg", "tin"));
-		list.add(new sachbean("s5", "Java nâng cao", "Nguyễn Quang Hà", 2, 10,"b5.jpg", "tin"));
-		list.add(new sachbean("s1", "Xác suất thống kê", "Hoàng Sơn", 2, 10,"b6.jpg", "tin"));
-		return list;
+		
+		try { // Tao 1 mang luu all loai 
+			 ArrayList<sachbean> ds = new ArrayList<sachbean>(); 
+			 // b1: ket noi vao csdl 
+			 ketnoi kn = new ketnoi();
+			 kn.ketnoi(); 
+			 // b2: lay du lieu ve 
+			 String sql = "select * from sach";
+			 PreparedStatement cmd = kn.cn.prepareStatement(sql); 
+			 ResultSet rs = cmd.executeQuery(); 
+			 // b3: dua du lieu vao mang ds 
+			 while (rs.next()) { 
+				 String masach = rs.getString("masach");
+				 String tensach = rs.getString("tensach");
+				 String tacgia = rs.getString("tacgia");
+				 String sl = rs.getString("soluong");
+				 String gia = rs.getString("gia");
+				 String anh = rs.getString("anh");
+				 String maloai = rs.getString("maloai");
+				 ds.add(new sachbean(masach, tensach,tacgia, Integer.parseInt(sl), Integer.parseInt(gia), anh, maloai)); 
+			 } 
+			 // b4: dong ket noi rs.close();
+			 kn.cn.close(); 
+			 return ds; 
+		} 
+		catch (Exception e) { e.printStackTrace(); 
+			return null; 
+		 }
 	}
 }
